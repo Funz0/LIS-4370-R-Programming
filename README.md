@@ -1,4 +1,3 @@
 # LIS 4370 Spring 2022
-Week 1: Getting Started
 
-This week is about setting up my GitHub, creating a new blog section named "R Programming" in Wordpresss.com, and ensuring R and RStudio are up to date.
+This repository will be used to post all of my R Programming source code via Wordpress, which is the site I will be using to post my blogs.
