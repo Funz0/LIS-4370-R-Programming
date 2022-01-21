@@ -1,7 +1,7 @@
 ---
-title: "Module 2: Introduction to basic R functions and Data Structures"
+title: 'Module 2: Introduction to basic R functions and Data Structures'
 author: "Alejandro Cepeda"
-date: "1/20/2022"
+date: "1/23/2022"
 output: html_document
 ---
 
