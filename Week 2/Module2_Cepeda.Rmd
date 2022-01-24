@@ -29,5 +29,5 @@ b. **myMean** result explanation:
 
 ```{r}
 # verifying results
-(myMean2 <- sum(assignment)/12)
+mean(assignment)
 ```
