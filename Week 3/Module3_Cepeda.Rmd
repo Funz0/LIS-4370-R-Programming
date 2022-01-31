@@ -17,7 +17,7 @@ CBS political poll results <- c(12, 75, 43, 19, 1, 21, 19)
 
 ## data.frame
 
-In the following chunk, I will proceed to store the given variables and apply the "data.frame" function and properly convert into a data frame.
+In the following chunk, I will proceed to store the given variables and apply the "data.frame" function and properly convert into a data frame:
 
 ```{r data.frame, echo=FALSE}
 # storing data as a data frame
@@ -26,5 +26,5 @@ Candidate = c("Jeb", "Donald", "Ted", "Marco", "Carly", "Hillary", "Bernie"),
 ABC = c(4, 62, 51, 21, 2, 14, 15),
 CBS = c(12, 75, 43, 19, 1, 21, 19)
 )
-poll_results
+print(poll_results)
 ```
