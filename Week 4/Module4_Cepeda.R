@@ -43,3 +43,4 @@ hospital.histogram <- hist(hospital$bloodp,
                            col=c("maroon"),
                            xlab="Blood Pressure",
                            ylab="Hospital Frequency")
+
