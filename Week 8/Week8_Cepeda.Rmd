@@ -24,7 +24,7 @@ head(students)
 library(plyr)
 # run mean function on age and grade by gender
 grade_avg <- ddply(students, "Sex", transform, Grade.Average=mean(Grade))
-print(grade_avg)
+head(grade_avg)
 ```
 
 ### Step 3: Print sorted data into a file
