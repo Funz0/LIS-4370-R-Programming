@@ -1,0 +1,45 @@
+---
+title: 'Week 8: Input/Output'
+author: "Alejandro Cepeda"
+date: "3/2/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Step 1: Import Dataset into R
+
+```{r "Step 1"}
+# read in student grade table
+students <- read.table(file.choose(), header=TRUE, sep=",")
+head(students)
+```
+
+### Step 2: Run a `mean` using Sex as the category (with `plyr` package)
+
+```{r "Step 2"}
+#install.packages("plyr")
+library(plyr)
+# run mean function on age and grade by gender
+grade_avg <- ddply(students, "Sex", transform, Grade.Average=mean(Grade))
+print(grade_avg)
+```
+
+### Step 3: Print sorted data into a file
+
+``` {r "Step 3"}
+# write new table with added observation in csv format
+write.table(grade_avg, "Sorted_Average", sep=",")
+```
+
+### Step 4: Filter names containing the letter "i" and print onto a new file
+
+``` {r "Step 4"}
+# include only names with the letter i & I
+i_students <- subset(students, grepl("[iI]", students$Name))
+print(i_students)
+# write subset data into a new csv file
+write.table(i_students, "SubsetData", sep=",")
+```
