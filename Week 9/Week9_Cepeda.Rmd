@@ -1,0 +1,65 @@
+---
+title: 'Module #9: Visualization in R'
+author: "Alejandro Cepeda"
+date: "3/13/2022"
+output: html_document
+---
+
+```{r setup, message=FALSE}
+# libraries
+library(tidyverse)
+library(lattice)
+
+```
+
+---
+
+### Part 0: Loading Data & Pre-Processing
+
+```{r, "Part 0"}
+# reading in data
+nba.players <- read.csv("data/nba_players_19.csv", stringsAsFactors = F) 
+head(nba.players)
+summary(nba.players)
+
+# data wrangling
+nba.players <- nba.players %>%
+  select(-1) %>%
+  drop_na(number) %>%
+  group_by(as.factor(team))
+
+```
+
+---
+
+### Part 1: base R Visualization
+  
+```{r, "Part 1"}
+max_height <- max(nba.players$height)
+# visualize height distribution w/ base R
+hist(nba.players$height, breaks=max_height, 
+     main="Histogram of NBA Player Height Frequencies", xlab="Height (cm)")
+# most amount of players were 82 cm
+
+```
+
+---
+
+### Part 2: `lattice` Visualization
+
+```{r, "Part 2"}
+# dot plot of player position ~ height
+dotplot(position ~ height, nba.players, 
+        main="Dotplot of Player Position based on Height (cm)", xlab="Height (cm)")
+# tallest players were `Center` players while shortest were `Guard` players.
+
+```
+
+---
+
+### Part 3: `ggplot2` Visualization
+
+
+```{r, "Part 3"}
+#
+```
