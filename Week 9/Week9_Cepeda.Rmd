@@ -51,7 +51,7 @@ hist(nba.players$height, breaks=max_height,
 # dot plot of player position ~ height
 dotplot(position ~ height, nba.players, 
         main="Dotplot of Player Position based on Height (cm)", xlab="Height (cm)")
-# tallest players were `Center` players while shortest were `Guard` players.
+# tallest players were `Center` players while shortest were `Guard` players
 
 ```
 
@@ -61,5 +61,16 @@ dotplot(position ~ height, nba.players,
 
 
 ```{r, "Part 3"}
-#
+# storing a new df with only the position, height, and height frequencies
+nba.players %>% 
+  group_by(height, position) %>% 
+  summarize(height_freq = sum(height)) %>%
+# scatterplot of height and position as key
+ggplot(aes(x=height, y=height_freq, color=position)) +
+  geom_point() +
+  labs(
+    title="Scatterplot of Player Heights based on the position",
+    x="Height (cm)",
+    y="Height Frequency"
+  )
 ```
