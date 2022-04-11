@@ -5,7 +5,8 @@ date: "4/10/2022"
 output: html_document
 ---
 
-```{r setup}
+```{r setup, message=FALSE}
+library(readxl)
 ```
 
 ## The Data:
@@ -13,6 +14,9 @@ I will be using the **Big 5** soccer leagues in europe as the data used in this 
 This is because of how prevalent these leagues are for soccer analytics, thus it is the only data I would store. This will allow me to save plenty of time by simply loading the `soccermatrix` package and reading in the desired dataset.
 
 ```{r "The Data"}
-myurl <- "https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats#big5_table"
-big5_data <- read.csv(myurl)
+big5_data <- read_excel("FBref_2122.xlsx")
+head(big5_data)
 ```
+NOTE: This data set is not yet cleaned. I need to first try some matrix calculations that would best suit the package. Once I have done that, many variables will be examined to determine the ideal formatting the package user should use.
+
+DISCLAIMER: All the data belongs to [fbref.com]("https://fbref.com/")
