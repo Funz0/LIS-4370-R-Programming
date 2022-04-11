@@ -6,13 +6,13 @@ output: html_document
 ---
 
 ```{r setup}
-
 ```
 
-## Final Project **matrixfy** function
+## The Data:
+I will be using the **Big 5** soccer leagues in europe as the data used in this package.
+This is because of how prevalent these leagues are for soccer analytics, thus it is the only data I would store. This will allow me to save plenty of time by simply loading the `soccermatrix` package and reading in the desired dataset.
 
-```{r}
-matrixfy <- function(x) {
-  
-}
+```{r "The Data"}
+myurl <- "https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats#big5_table"
+big5_data <- read.csv(myurl)
 ```
