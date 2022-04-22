@@ -1,0 +1,17 @@
+Package: soccermatrix
+Type: Package
+Title: Assists in Data Gathering and Matrix Conversion
+Version: 0.0.0.9000
+Authors@R: "Alejandro Cepeda <acepeda19@usf.edu> [aut, cre]"
+Description: This package contains FBref and Transfermarkt data sets of both players and teams from all major leagues and divisions. 
+    Additionally, there is a function for matrix conversion to use for visualizations such as heat maps and even certain machine learning 
+    methods that require matrix form data, such as Clustering for example.The purpos of this package is to skip certain steps that are common
+    when working with soccer data and allow the user to not be required to manually download the data from the mentioned sources.
+Depends: R(>= 4.1.3)
+License: CC0
+Encoding: UTF-8
+NeedsCompilation: no
+Packaged: 2022-03-25 02:14:10 UTC; alece
+Author: "Alejandro Cepeda" [aut, cre]
+Maintainer: "Alejandro Cepeda" <acepeda19@usf.edu>
+Built: R 4.1.3; ; 2022-03-25 02:14:16 UTC; windows
