@@ -17,6 +17,9 @@ Converts FBref data into matrix form.
 }
 \examples{
 \dontrun{
-matrixfy(data = df)
+data_m <- matrixfy(data = df)
+
+# an example of what your matrix could be used in dataviz
+heatmap(data_m)
 }
 }
