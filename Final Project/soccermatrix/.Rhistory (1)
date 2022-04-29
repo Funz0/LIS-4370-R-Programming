@@ -1,0 +1,512 @@
+}
+big5_player_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_standard") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- cols
+data <- data[-1,-c(1,3,4,7:8,34)] #sorted in Ranking order
+data <- data[!data$Player=="Player",] # removing header info from rows
+data$Player <- factor(data$Player)
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data$Min <- gsub("\\,", "", data$Min)
+class(data) <- "data.frame"
+return(data)
+}
+matrixfy <- function(data){
+cols <- colnames(data)
+rows <- rownames(data)
+data <- matrix(data)
+colnames(data) <- paste(cols, 1:28)
+rownames(data) <- paste(rows, 1:2849)
+return(data)
+}
+data1 <- big5_player_stats()
+library(tidyverse)
+data <- big5_player_stats()
+data1 <- big5_team_stats()
+matrixfy(data = data)
+matrixfy(data1)
+cols <- colnames(data)
+rows <- rownames(data)
+data <- matrix(data)
+colnames(data) <- paste(cols, 1:28)
+View(data)
+View(data)
+rownames(data) <- paste(rows, 1:2850)
+View(data)
+colnames(data) <- paste(cols, 1:28)
+data <- big5_player_stats()
+data <- as.matrix(data)
+data <- as.factor(data)
+data <- big5_player_stats()
+data <- as.factor(data)
+data <- big5_player_stats()
+?mutate
+data %>%
+mutate(as.factor)
+?mutate
+data %>%
+select(!is.factor)
+data %>%
+select(where(is.factor))
+data %>%
+select(where(!is.factor))
+data %>%
+select(where(is.character))
+data <- data %>%
+distinct()
+data %>%
+select(where(is.character)) %>%
+mutate(as.numeric)
+data <- data[,!duplicated(colnames(data))]
+data %>%
+select(where(is.character)) %>%
+mutate(as.numeric)
+?mutate_all
+data %>%
+mutate_if(is.character, as.numeric)
+data = data %>%
+mutate_if(is.character, as.numeric)
+data <- matrix(data)
+heatmap(data)
+?matrix
+View(data)
+data <- as.matrix(data)
+heatmap(data)
+class(data)
+typeof(data)
+big5_team_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/squads/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_squads_standard_for") %>% rvest::html_table()
+data <- data[[1]]
+names(data) <- data[1,]
+data <- data[-1,-1] #sorted in Ranking order
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data$Min <- gsub("\\,", "", data$Min)
+data <- data[,!duplicated(colnames(data))]
+class(data) <- "data.frame"
+return(data)
+}
+big5_player_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_standard") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- cols
+data <- data[-1,-c(1,3,4,7:8,34)] #sorted in Ranking order
+data <- data[!data$Player=="Player",] # removing header info from rows
+data$Player <- factor(data$Player)
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data <- data[,!duplicated(colnames(data))]
+data$Min <- gsub("\\,", "", data$Min)
+class(data) <- "data.frame"
+return(data)
+}
+data <- big5_player_stats()
+data = data %>%
+mutate_if(is.character, as.factor)
+data <- as.matrix(data)
+heatmap(data)
+?apply
+data <- apply(as.matrix.noquote(data), 2, as.numeric)
+data <- big5_player_stats()
+data = data %>%
+mutate_if(is.character, as.factor)
+data <- apply(as.matrix.noquote(data), 2, as.numeric)
+data = big5_player_stats()
+data = data %>%
+mutate_if(is.character, as.factor)
+data <- data.matrix(data)
+heatmap(data)
+data = big5_player_stats()
+data <- data.matrix(data)
+heatmap(data)
+?heatmap
+data1 = big5_team_stats()
+data = big5_player_stats()
+data <- data.matrix(data, ncol=21)
+?data.matrix
+data <- matrix(data, ncol=21)
+View(data)
+cols <- colnames(data)
+data = big5_player_stats()
+cols <- colnames(data)
+rows <- rownames(data)
+?matrix
+data <- matrix(data, nrow=sum(rows), ncol=21)
+data <- matrix(data, nrow=2850, ncol=21)
+heatmap(data)
+?heatmap
+data <- data.matrix(data, nrow=2850, ncol=21)
+View(data)
+data = big5_player_stats()
+row.names(data) <- data[,1]
+big5_player_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_standard") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- cols
+data <- data[-1,-c(1,3,4,7:8,34)] #sorted in Ranking order
+data <- data[!data$Player=="Player",] # removing header info from rows
+#data$Player <- factor(data$Player)
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data <- data[,!duplicated(colnames(data))]
+data$Min <- gsub("\\,", "", data$Min)
+class(data) <- "data.frame"
+return(data)
+}
+data = big5_player_stats()
+data = big5_player_stats()
+data = big5_player_stats()
+row.names(data) <- data[,1]
+row.names(data)
+View(data)
+data <- unique(data)
+data <- data[,!duplicated(colnames(data))]
+row.names(data) <- data[,1]
+data$Player <- unique(data$Player)
+data <- data[,!duplicated(data$Player)]
+data$Player <- factor(data$Player)
+data <- data[,!duplicated(levels(data$Player))]
+data <- data[!duplicated(data$Player),]
+data <- data[,!duplicated(colnames(data))]
+big5_player_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_standard") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- cols
+data <- data[-1,-c(1,3,4,7:8,34)] #sorted in Ranking order
+data <- data[!data$Player=="Player",] # removing header info from rows
+data$Player <- factor(data$Player)
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data <- data[!duplicated(data$Player),]
+data <- data[,!duplicated(colnames(data))]
+data$Min <- gsub("\\,", "", data$Min)
+class(data) <- "data.frame"
+return(data)
+}
+row.names(data) <- data[,1]
+data <- data[,-1]
+data$Squad <- NULL
+data$Comp <- NULL
+row.names(data)
+data <- data.matrix(data)
+heatmap(data)
+View(data)
+class(data)
+typeof(data)
+View(data)
+big5_player_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_standard") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- cols
+data <- data[-1,-c(1,3,4,7:8,34)] #sorted in Ranking order
+data <- data[!data$Player=="Player",] # removing header info from rows
+#data$Player <- factor(data$Player)
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data <- data[!duplicated(data$Player),]
+data <- data[,!duplicated(colnames(data))]
+data$Min <- gsub("\\,", "", data$Min)
+class(data) <- "data.frame"
+return(data)
+}
+data = big5_player_stats()
+data = matrixfy(data = data)
+matrixfy <- function(data){
+cols <- colnames(data)
+rows <- rownames(data)
+row.names(data) <- data[,1]
+data <- data[,-c(1:3)]
+data <- data.matrix(data)
+return(data)
+}
+matrixfy(data = data)
+data = matrixfy(data)
+?heatmap
+heatmap(data, RowSideColors = rows, ColSideColors = cols)
+heatmap(data, RowSideColors = rows)
+heatmap(data, scale = "column")
+data = big5_team_stats()
+big5_team_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/squads/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_squads_standard_for") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- data[1,]
+data <- data[-1,-1] #sorted in Ranking order
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data$Min <- gsub("\\,", "", data$Min)
+data <- data[,!duplicated(colnames(data))]
+class(data) <- "data.frame"
+return(data)
+}
+data = big5_team_stats()
+data1 = NULL
+data = matrixfy(data)
+heatmap(data)
+?xml2
+library(xml2)
+?xml2
+xml2
+help(xml2)
+??xml2
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+rlang::last_error()
+big5_team_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/squads/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_squads_standard_for") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- cols
+data <- data[-1,-1] #sorted in Ranking order
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data$Min <- gsub("\\,", "", data$Min)
+data <- data[,!duplicated(colnames(data))]
+class(data) <- "data.frame"
+return(data)
+}
+big5_player_stats <- function(){
+data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats") %>%
+rvest::html_nodes("#stats_standard") %>% rvest::html_table()
+data <- data[[1]]
+cols <- as.character(data[1,])
+names(data) <- cols
+data <- data[-1,-c(1,3,4,7:8,34)] #sorted in Ranking order
+data <- data[!data$Player=="Player",] # removing header info from rows
+data$Squad <- factor(data$Squad)
+data$Comp <- factor(data$Comp)
+data <- data[!duplicated(data$Player),]
+data <- data[,!duplicated(colnames(data))]
+data$Min <- gsub("\\,", "", data$Min)
+class(data) <- "data.frame"
+return(data)
+}
+matrixfy <- function(data){
+cols <- colnames(data)
+rows <- rownames(data)
+row.names(data) <- data[,1]
+data <- data[,-1]
+data <- data.matrix(data)
+return(data)
+}
+data = big5_player_stats()
+cols <- colnames(data)
+rows <- rownames(data)
+row.names(data) <- data[,1]
+data <- data[,-1]
+data <- data.matrix(data)
+View(data)
+?data.matrix
+?ggplot
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project")
+R CMD build --no-manual --no-build-vignettes
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+library(soccermatrix)
+library(soccermatrix)
+data = big5_player_stats()
+matrixfy(data = data)
+class(data)
+data = matrixfy(data = )
+data = matrixfy(data)
+class(data)
+heatmap(data)
+jelp(soccermatrix)
+help(soccermatrix)
+?soccermatrix
+??soccermatrix
+install_github(soccermatrix)
+?install_github
+??install_github
+Sys.getenv("PATH")
+library(devtools)
+install.packages("devtools")
+install.packages("devtools")
+install.packages("devtools")
+install.packages("devtools")
+install.packages("devtools")
+install.packages("devtools")
+install.packages("devtools")
+library(devtools)
+install_github("klutometis/roxygen")
+library(roxygen2)
+getwd()
+setwd("soccermatrix")
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+create("soccermatrix")
+setwd("./soccermatrix")
+document()
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+document()
+install("soccermatrix")
+create("soccermatrix")
+create("soccermatrix")
+test()
+test()
+rlang::last_error()
+document()
+install("soccermatrix")
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+install("soccermatrix")
+install.packages("soccermatrix")
+install.packages("soccermatrix")
+?soccermatrix
+??soccermatrix
+R.version
+??soccermatrix
+install.packages("soccermatrix")
+help(soccermatrix)
+??soccermatrix
+?soccermatrix
+options(devtools.desc = list(Depends = "4.1.3"))
+options(devtools.desc = list(Depends = "4.1.3"))
+install.packages(c("cluster", "dplyr", "MASS", "Matrix", "mgcv", "nlme", "ps", "rmarkdown", "survival", "uuid"))
+devtools::load_all(".")
+test()
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+testthat::test_dir(getwd())
+test(getwd())
+testthat::test_package("soccermatrix")
+install.packages("testthat")
+install.packages("testthat")
+library(askpass)
+library(assertthat)
+library(backports)
+library(base64enc)
+library(bit)
+detach("package:bit", unload = TRUE)
+library(bit64)
+library(bit)
+library(blob)
+library(boot)
+library(brew)
+library(brio)
+library(broom)
+library(bslib)
+library(cachem)
+library(callr)
+library(cellranger)
+library(class)
+library(cli)
+library(clipr)
+library(cluster)
+library(codetools)
+library(colorspace)
+install("soccermatrix")
+devtools::install("soccermatrix")
+library(devtools)
+library(testthat)
+test(".")
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+test("soccermatrix")
+install("soccermatrix")
+install(".")
+test(".")
+install("soccermatrix")
+install_github("soccermatrix", "Funz0")
+setwd("..")
+getwd()
+install("soccermatrix")
+install_github("soccermatrix", "Funz0")
+install.packages("soccermatrix")
+licence("CC0")
+check()
+check_mac_release()
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+check()
+check_win_devel()
+check_rhub
+check_rhub()
+check()
+check_rhub()
+test()
+test_check("soccermatrix")
+library(testthat)
+library(soccermatrix)
+test_check("soccermatrix")
+?soccermatrix
+??soccermatrix
+install_github("soccermatrix", "Funz0")
+setwd("..")
+install_github("/LIS_3470_R_Programming/Final Project/soccermatrix", "Funz0")
+?install_github
+library(testthat)
+library(soccermatrix)
+test_check("soccermatrix")
+install.packages("soccermatrix")
+install.packages("soccermatrix")
+library(testthat)
+library(soccermatrix)
+test_check("soccermatrix")
+install.packages("soccermatrix")
+install.packages("soccermatrix")
+library(soccermatrix)
+help(soccermatrix)
+?soccermatrix
+??socceratrix
+??soccermatrix
+check_rhub()
+library(devtools)
+check_rhub()
+library(soccermatrix)
+test_check("soccermatrix")
+library(testthat)
+library(soccermatrix)
+test_check("soccermatrix")
+use_cc0_license()
+use_github()
+install_github("soccermatrix","Funz0")
+check_rhub()
+library(soccermatrix)
+library(soccermatrix)
+install.packages("soccermatrix")
+install.packages("soccermatrix")
+install.packages("soccermatrix", dependencies = TRUE)
+library(soccermatrix)
+?soccermatrix
+??soccermatrix
+check_rhub()
+devtools::checkrhub()
+library(devtools)
+check_rhub()
+check_rhub()
+check_rhub()
+check_rhub()
+library(soccermatrix)
+library(soccermatrix)
+check_rhub()
+install("soccermatrix")
+setwd("..")
+install("soccermatrix")
+library(soccermatrix)
+big5_player_stats()
+?soccermatrix
+??soccermatrix
+install.packages("soccermatrix")
+install.packages("soccermatrix")
+version
+check_rhub()
+setwd("..")
+check_rhub()
+check_rhub("soccermatrix")
+library(devtools)
+check_rhub()
+setwd("..")
+check_rhub()
+setwd("~/Google Drive/University/USF/SPRING 22/LIS 4370 - R Programming/LIS_4370_R_Programming/Final Project/soccermatrix")
+check_rhub()
+library(soccermatrix)
+check_rhuub()
+check_rhub()
