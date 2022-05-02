@@ -5,14 +5,15 @@
 #' @import dplyr
 #' @export
 #' @examples
-#' # loading example data
-#' df <- big5_team_stats()
+#' df = big5_team_stats()
+
+#' # removing unwanted cols for heatmap specifically
+#' df <- df %>%
+#' select(-c("Starts","Min","PK","PKatt","CrdR","xG+xA","G+A-PK","G+A","npxG+xA","CrdY"))
 #'
-#' data_m <- matrixfy(data = df)
+#' df_m = matrixfy(data = df)
 #'
-#' # an example of what your matrix could be used in dataviz
-#' heatmap(data_m)
-#' }
+#' heatmap(df_m)
 
 matrixfy <- function(data){
   cols <- colnames(data)
