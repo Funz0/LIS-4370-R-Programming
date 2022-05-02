@@ -13,7 +13,7 @@ Description: The data (sourced from <https://fbref.com/en/>) of both players and
              steps that are common when working with statistical soccer data and 
              save some of the user's time with the resourcing from the mentioned
              sources.
-License: MIT + file LICENSE
+License: CC0
 Imports: dplyr,
          rvest,
          xml2
