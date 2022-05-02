@@ -6,7 +6,7 @@
 #' @export
 #' @examples
 #' # loading example data
-#' df <- read.csv("FBref_2122.csv")
+#' df <- big5_team_stats()
 #'
 #' data_m <- matrixfy(data = df)
 #'
@@ -14,15 +14,18 @@
 #' heatmap(data_m)
 #' }
 
-matrixfy <- function(data = NULL){
+matrixfy <- function(data){
 
   cols <- colnames(data)
-  rows <- rownames(data)
+  rows <- levels(data[,1])
 
-  row.names(data) <- data[,1]
-  data <- data[,-1]
+  data <- select(data, -starts_with(c("Player", "Squad", "Comp")))
+
+  data <- data %>%
+    mutate_if(is.character, as.numeric)
 
   data <- data.matrix(data)
+  row.names(data) <- rows
 
   return(data)
 }
