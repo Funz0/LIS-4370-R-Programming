@@ -14,7 +14,7 @@
 #' heatmap(data_m)
 #' }
 
-matrixfy <- function(data=NULL){
+matrixfy <- function(data){
   cols <- colnames(data)
   rows <- data[,1]
 
