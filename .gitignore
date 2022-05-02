@@ -5,6 +5,7 @@
 .Rdata
 .httr-oauth
 .DS_Store
+soccermatrix.Rcheck
 Week 2/data-import-R.pdf
 Week 2/Resources/WorkingWithFunctions.pdf
 Week 2/Resources/data-import-R.pdf
@@ -13,4 +14,3 @@ Week 8/Notes/Module #8 Step by Step.pdf
 Week 8/Week8_Cepeda.html
 Week 12/sportsref_download_files/filelist.xml
 Week 12/sportsref_download_files/stylesheet.css
-soccermatrix.Rcheck
