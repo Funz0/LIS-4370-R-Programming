@@ -15,9 +15,8 @@
 #' }
 
 matrixfy <- function(data=NULL){
-
   cols <- colnames(data)
-  rows <- levels(data[,1])
+  rows <- data[,1]
 
   data <- select(data, -starts_with(c("Player", "Squad", "Comp")))
 
