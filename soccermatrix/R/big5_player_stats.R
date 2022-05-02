@@ -9,7 +9,7 @@
 #' \dontrun{
 #' mydata <- big5_player_stats()
 #' }
-#' @source https://fbref.com/
+#' @source \url{https://fbref.com/}
 
 big5_player_stats <- function(){
   data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats") %>%
@@ -24,7 +24,6 @@ big5_player_stats <- function(){
   data$Comp <- factor(data$Comp)
   data <- data[!duplicated(data$Player),]
   data <- data[,!duplicated(colnames(data))]
-
   data$Min <- gsub("\\,", "", data$Min)
 
   class(data) <- "data.frame"
