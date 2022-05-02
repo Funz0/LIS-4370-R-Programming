@@ -9,7 +9,7 @@
 #' \dontrun{
 #' mydata <- big5_team_stats()
 #' }
-#' @source https://fbref.com/
+#' @source \url{https://fbref.com/}
 
 big5_team_stats <- function(){
   data <- xml2::read_html("https://fbref.com/en/comps/Big5/stats/squads/Big-5-European-Leagues-Stats") %>%
